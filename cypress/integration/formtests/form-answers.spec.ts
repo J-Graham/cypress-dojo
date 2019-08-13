@@ -12,7 +12,6 @@ describe('index page tests', () => {
         });
 
         it('Should validate the form on submit', () => {
-            cy.get('.btn-primary').click();
             cy.get('#userName').type('jgraham');
             cy.get('#city').type('Lumberton');
             cy.get('#state').type('New Jersey');
