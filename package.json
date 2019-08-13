@@ -1,0 +1,22 @@
+{
+    "name": "cypress-dojo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "node ./node_modules/cypress/bin/cypress open",
+        "start": "npx serve"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cypress": "^3.4.1"
+    },
+    "devDependencies": {
+        "@bahmutov/add-typescript-to-cypress": "^2.1.2",
+        "npx": "^10.2.0",
+        "ts-loader": "^6.0.4",
+        "typescript": "^3.5.3",
+        "webpack": "^4.39.1"
+    }
+}
