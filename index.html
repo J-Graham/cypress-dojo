@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -11,28 +12,28 @@
         <form class="needs-validation" novalidate>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
-                    <label for="validationCustom01">First name</label>
-                    <input type="text" class="form-control" id="validationCustom01" placeholder="First name"
-                        value="Mark" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="validationCustom02">Last name</label>
-                    <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto"
+                    <label for="firstName">First name</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="First name" value="John"
                         required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="validationCustomUsername">Username</label>
+                    <label for="lastName">Last name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Last name" value="Graham"
+                        required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="userName">Username</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend">@</span>
                         </div>
-                        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username"
+                        <input type="text" class="form-control" id="userName" placeholder="Username"
                             aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">
                             Please choose a username.
@@ -42,22 +43,22 @@
             </div>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
-                    <label for="validationCustom03">City</label>
-                    <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" placeholder="City" required>
                     <div class="invalid-feedback">
                         Please provide a valid city.
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label for="validationCustom04">State</label>
-                    <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
+                    <label for="state">State</label>
+                    <input type="text" class="form-control" id="state" placeholder="State" required>
                     <div class="invalid-feedback">
                         Please provide a valid state.
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label for="validationCustom05">Zip</label>
-                    <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
+                    <label for="zip">Zip</label>
+                    <input type="text" class="form-control" id="zip" placeholder="Zip" required>
                     <div class="invalid-feedback">
                         Please provide a valid zip.
                     </div>
@@ -65,8 +66,8 @@
             </div>
             <div class="form-group">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                    <label class="form-check-label" for="invalidCheck">
+                    <input class="form-check-input" type="checkbox" value="" id="terms" required>
+                    <label class="form-check-label" for="terms">
                         Agree to terms and conditions
                     </label>
                     <div class="invalid-feedback">
@@ -76,6 +77,22 @@
             </div>
             <button class="btn btn-primary" type="submit">Submit form</button>
         </form>
+    </div>
+    <div class="container-fluid" style="margin-top: 50px">
+        <div class="form-group">
+            <div class="row">
+                <button style="margin-left: 15px" class="btn btn-secondary" onclick="resetDisplay()">Reset</button>
+            </div>
+            <label for="showElements">Select list:</label>
+            <select class="form-control" id="showElements" onchange="change(this)">
+                <option value="0">Select an Option...</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+        </div>
+        <label id="number1">Hello!</label>
     </div>
 </body>
 <script>
@@ -97,6 +114,27 @@
             });
         }, false);
     })();
+    window.onload = () => {
+        resetDisplay();
+    }
+
+    function resetDisplay() {
+        $('#number1').hide();
+        $('#showElements').val('0');
+    }
+
+    function change(obj) {
+
+        var selectBox = obj;
+        var selected = selectBox.options[selectBox.selectedIndex].value;
+
+        if (selected === '1') {
+            $('#number1').show();
+        }
+        else {
+            $('#number1').hide();
+        }
+    }
 </script>
 
 </html>
